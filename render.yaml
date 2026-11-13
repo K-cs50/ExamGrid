@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: exam-allocator
+    name: examgrid
     runtime: node
     buildCommand: npm install
     startCommand: node server.js
@@ -19,3 +19,4 @@ services:
         value: "true"
       - key: NODE_ENV
         value: production
+
