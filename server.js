@@ -1,9 +1,10 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const db = mysql.createPool({
   host:        process.env.DB_HOST     || 'localhost',
@@ -124,5 +125,10 @@ app.post('/api/unavailability', w(async (req, res) => {
   res.json({ ok: true });
 }));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Open http://localhost:${PORT}`));
+// Start server locally; Vercel uses module.exports instead
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Open http://localhost:${PORT}`));
+}
+
+module.exports = app;

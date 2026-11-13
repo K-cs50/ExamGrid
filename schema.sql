@@ -12,7 +12,7 @@ CREATE TABLE faculty (
   faculty_id  INT PRIMARY KEY AUTO_INCREMENT,
   name        VARCHAR(60) NOT NULL,
   dept_id     VARCHAR(10) NOT NULL,
-  base_duties INT NOT NULL DEFAULT 0,          -- duties from earlier cycles
+  base_duties INT NOT NULL DEFAULT 0,          -- duties from earlier cycles--
   FOREIGN KEY (dept_id) REFERENCES department(dept_id)
 );
 
