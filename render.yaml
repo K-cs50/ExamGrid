@@ -6,15 +6,15 @@ services:
     startCommand: node server.js
     envVars:
       - key: DB_HOST
-        sync: false
+        value: gateway01.ap-northeast-1.prod.aws.tidbcloud.com
       - key: DB_PORT
-        sync: false
+        value: "4000"
       - key: DB_USER
-        sync: false
+        value: 1C6dwZChUVjhPL7.root
       - key: DB_PASSWORD
-        sync: false
+        sync: false          # enter manually in Render dashboard
       - key: DB_NAME
-        sync: false
+        value: invigilator_db
       - key: DB_SSL
         value: "true"
       - key: NODE_ENV
